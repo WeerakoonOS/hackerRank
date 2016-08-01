@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String time = in.next();
+        
+        String sTime[]=time.split(":");
+        String ssTime1=sTime[2].substring(0,2);
+        String ssTime2=sTime[2].substring(2,4);
+        int hour=0;
+        if (ssTime2.equalsIgnoreCase("PM")) {
+            if(Integer.parseInt(sTime[0])<12){
+                hour= Integer.parseInt(sTime[0])+12;
+                sTime[0]=Integer.toString(hour);
+            }
+        }
+        if (ssTime2.equalsIgnoreCase("AM")){
+            if (Integer.parseInt(sTime[0])==12){
+                sTime[0]="00";
+            }
+        }
+        System.out.print(sTime[0]+":"+sTime[1]+":"+ssTime1);
+        
+    }
+}
